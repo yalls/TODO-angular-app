@@ -1,0 +1,41 @@
+<html>
+<head>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script src="app.js">
+</script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body ng-app="TODO" ng-controller="TODOCtrl" >
+
+ <div  class="container">
+ 	<h3>Add TODOs : </h3>
+ 	<p> Add Element : 
+ 	
+ 		<div class="col-md-6 row" > 
+ 			<input type="text" class="form-control " ng-model="newTodo"> 
+ 		</div>
+ 		<br>
+ 		<br> 
+ 		<div class=" row container">
+ 			<button class="btn btn-primary col-md-1" ng-click="addTodo()"> Add</button>
+ 		</div>
+	 </p>
+ 
+ </div>
+ 
+ <div class="container"> 
+	<h3> Your TODOS: 
+	<button ng-hide="editmode" class="btn btn-success" ng-click="triggerEditMode()">Edit </button>
+	<button ng-show="editmode" class="btn btn-success" ng-click="triggerEditMode()">Done </button>
+	</h3>
+	<ol >
+ 	<li ng-repeat="todo in todos"> <p > <span  ng-hide="editmode" ng-bind="todo" > </span> <input ng-show="editmode" type="text" ng-model="todo" /></p> </li>
+ 	</ol>
+ </div>
+
+</body>
+</html>
